@@ -16,4 +16,5 @@ Create/Edit Page
 
 
 # How to run test
-./vendor/bin/phpunit tests/ tests/Unit/
+./vendor/bin/phpunit tests/Unit/Models
+./vendor/bin/phpunit tests/Unit/Services
