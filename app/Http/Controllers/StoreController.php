@@ -70,11 +70,19 @@ class StoreController extends Controller
 
     }
 
+    /**
+     * @param Store $store
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function show(Store $store)
     {
         return view('stores.edit', compact('store'));
     }
 
+    /**
+     * @param Store $store
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function edit(Store $store)
     {
         return view('stores.edit', compact('store'));
@@ -103,6 +111,10 @@ class StoreController extends Controller
 
     }
 
+    /**
+     * @param Store $store
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Store $store)
     {
         try {
