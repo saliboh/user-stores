@@ -16,36 +16,36 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
-        <header class="bg-blue-900 py-6">
-            <div class="container mx-auto flex justify-between items-center px-6">
-                <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+<div id="app">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a class="text-xl font-semibold text-blue-500" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <div class="space-x-4">
                     @guest
-                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="text-gray-600 hover:text-gray-800 px-3" href="{{ route('login') }}">Login</a>
                         @if (Route::has('register'))
-                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="text-gray-600 hover:text-gray-800 px-3" href="{{ route('register') }}">Register</a>
                         @endif
                     @else
-                        <span>{{ Auth::user()->name }}</span>
-
-                        <a href="{{ route('logout') }}"
-                           class="no-underline hover:underline"
-                           onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <span class="text-gray-600">{{ Auth::user()->name }}</span>
+                        <a href="{{ route('logout') }}" class="text-gray-600 hover:text-gray-800 px-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                            {{ csrf_field() }}
+                            @csrf
                         </form>
+                        <a href="{{ route('stores.index') }}" class="text-gray-600 hover:text-gray-800 px-3">Stores</a>
+                        <a href="{{ route('stores.create') }}" class="text-gray-600 hover:text-gray-800 px-3">Create Store</a>
                     @endguest
-                </nav>
+                </div>
             </div>
-        </header>
+        </div>
+    </nav>
 
+    <main class="py-4">
         @yield('content')
-    </div>
+    </main>
+</div>
 </body>
 </html>
