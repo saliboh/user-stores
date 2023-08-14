@@ -16,5 +16,9 @@ Create/Edit Page
 
 
 # How to run test
-./vendor/bin/phpunit tests/Unit/Models
-./vendor/bin/phpunit tests/Unit/Services
+Requirements
+- Create the file /database/database.sql
+
+- Run below codes
+./vendor/bin/phpunit --testsuite Feature
+./vendor/bin/phpunit --testsuite Unit
